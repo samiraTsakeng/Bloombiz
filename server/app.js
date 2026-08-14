@@ -1,5 +1,6 @@
-const express = require("express");
-const cors = require('cors');
+import express from "express";
+import cors from "cors";
+import authRoutes from "./routes/authRoutes.js";
 const app = express();
 
 app.use(cors());
@@ -9,4 +10,5 @@ app.get("/", (req, res) => {
         message: "Welcome to bloombiz API by samiii"
     });
 });
-module.exports = app;
+app.use("/api/auth", authRoutes);
+export default app;
